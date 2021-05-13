@@ -18,15 +18,20 @@ systemctl enable --user heyalter.service
 gsettings set org.gnome.desktop.background picture-uri 'file:///home/schule/Bilder/los_gehts.png'
 
 #cheese
-
+#install smb client and mount share
+sudo apt update -y
+sudo apt install cifs-utils -y
 # mount staging smb share
 # ip anpassen!
-gio mount -a smb://192.168.10.20/transfer
+# gio mount -a smb://192.168.10.20/transfer
 # TM 12-05-2021
 #ln -si /run/user/1000/gvfs/smb-share\:server\=192.168.10.20\,share\=transfer/ $HOME/smb
 #cd $HOME/smb
-cd /run/user/1000/gvfs
-cd 'smb-share:server=192.168.10.20,share=transfer'
+#cd /run/user/1000/gvfs
+#cd 'smb-share:server=192.168.10.20,share=transfer'
+sudo mkdir /tmp/install
+sudo mount.cifs -o username=guest,pass=guest //102.168.10.20/transfer /tmp/install
+cd /tmp/install
 gnome-terminal -- bash -c "sh ubuntu-post.sh; exec bash"
 #
 eject
