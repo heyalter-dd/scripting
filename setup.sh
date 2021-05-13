@@ -30,7 +30,7 @@ sudo apt install cifs-utils -y
 #cd /run/user/1000/gvfs
 #cd 'smb-share:server=192.168.10.20,share=transfer'
 sudo mkdir /tmp/install
-sudo mount.cifs -o username=guest,pass=guest //102.168.10.20/transfer /tmp/install
+sudo mount.cifs -o username=guest,pass=guest //192.168.10.20/transfer /tmp/install
 cd /tmp/install
 gnome-terminal -- bash -c "sh ubuntu-post.sh; exec bash"
 #
