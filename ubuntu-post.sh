@@ -14,7 +14,7 @@ if test ! -e reports/$folder; then
  echo "directory not existing, creating it"
  mkdir -p reports/$folder
 fi
-sudo apt update -y
+#sudo apt update -y
 sudo apt install hardinfo -y
 zenity --timeout 1 --info --text="Benchmark wird erstellt..."
 hardinfo -r -f html > /tmp/sysreport.html
