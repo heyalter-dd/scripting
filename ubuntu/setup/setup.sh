@@ -1,6 +1,9 @@
 #!/bin/bash
 # modified TM 2021, smb mount, gksu, sysinfo disabled
 
+#preparation
+gnome-terminal --wait -- bash -c "sudo apt update -y && sudo apt install nfs-common -y && sudo mkdir /tmp/install && sudo mount -t nfs 192.168.10.20:/var/www/html/transfer /tmp/install"
+
 # anzeigen der systemparameter
 
 #zenity --info --text "$(lshw -C memory)\n------------------------------------\nAnzahl Kerne: $(nproc)\n------------------------------------\n$(lshw -C cpu)" --width 1024
@@ -17,15 +20,9 @@ systemctl enable --user heyalter.service
 # richte das hintergrundbild ein
 gsettings set org.gnome.desktop.background picture-uri 'file:///home/schule/Bilder/los_gehts.png'
 
-#cheese
-
-# mount staging smb share
-# ip anpassen!
-gio mount -a smb://192.168.10.20/transfer
-# TM 11-05-2021
-ln -si /run/user/1000/gvfs/smb-share\:server\=192.168.10.20\,share\=transfer/ $HOME/smb
-cd $HOME/smb
-gnome-terminal -- bash -c "sh ubuntu-post.sh; exec bash"
+#postinstall
+cd /tmp/install
+gnome-terminal --wait -- bash -c "sh ubuntu-post.sh; exec bash"
 #
 eject
 

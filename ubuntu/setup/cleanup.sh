@@ -12,7 +12,7 @@ gio set ~/Schreibtisch/heyalterhelp.desktop "metadata::trusted" true
 
 # umount smb share
 # ip anpassen!
-gio mount -u smb://192.168.10.20/transfer
+#gio mount -u smb://192.168.10.20/transfer
 
 /opt/setup/cleanuproot.sh
 

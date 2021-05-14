@@ -1,0 +1,43 @@
+DEFAULT menu.c32
+TIMEOUT 50
+PROMPT 0
+NOESCAPE 1
+#
+MENU TITLE HeyAlter Staging Server V 1.2 (c) TM 2021
+MENU AUTOBOOT Starte hinterlegte Option in # Sekunden
+#
+LABEL erase
+ MENU LABEL ^erase Disk/SSD (pmagic) BIOS
+ # TM 11-05-2021 tftp option, symlink /tftp/pmagic anlegen!
+ linux /pmagic/bzImage 
+ initrd /pmagic/initrd.img,/pmagic/fu.img,/pmagic/m.img
+ append edd=on vga=normal keymap=de netsrc=tftp neturl="192.168.10.20:/pmagic/pmodules"
+ # komplettes iso booten - deprecated
+ #linux boot/pmagic/memdisk
+ #initrd boot/pmagic/pmagic.iso
+ #append iso lang=yes
+ #
+
+ TEXT HELP
+ Startet das Loeschen der Festplatten/SSD's
+ ENDTEXT
+
+LABEL os-install
+ MENU LABEL ^os-install (Ubuntu Auto) BIOS
+ kernel boot/ubuntu/vmlinuz
+ #initrd initrd boot=casper
+ append nfsroot=192.168.10.20:/var/www/html/ubuntu/ netboot=nfs ro file=/cdrom/preseed/ubuntu.seed boot=casper only-ubiquity initrd=/boot/ubuntu/initrd auto automatic-ubiquity quiet splash ip=dhcp ---
+ 
+ TEXT HELP
+ Startet die automatische Installation der HeyAlter Distribution
+ ENDTEXT
+
+LABEL localboot
+ MENU LABEL ^Boot lokal installiertes System
+ MENU DEFAULT
+ localboot 0
+ TEXT HELP
+ Von lokaler Festplatte booten
+ ENDTEXT
+
+#

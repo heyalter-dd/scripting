@@ -9,7 +9,8 @@ serial=`dmidecode -s system-serial-number | sed 's/\ //g'`
 datum=`date +%d-%m-%Y`
 folder=`echo $vendor"_"$model"_"$serial"-"$datum`
 mkdir -p reports/$folder
-if [ ! -d /home/partedmagic/diskveri* ]; then
+chmod -R a+rw reports/$folder
+if [ ! /home/partedmagic/diskveri* ]; then
 zenity --error --text "Loeschvorgang wirklich erledigt?" --title="Keine Reports vorhanden"
 exit 0
 else

@@ -14,7 +14,7 @@ if test ! -e reports/$folder; then
  echo "directory not existing, creating it"
  mkdir -p reports/$folder
 fi
-sudo apt update -y
+#sudo apt update -y
 sudo apt install hardinfo -y
 zenity --timeout 1 --info --text="Benchmark wird erstellt..."
 hardinfo -r -f html > /tmp/sysreport.html
@@ -28,7 +28,7 @@ zenity --timeout 1 --info --text="Updates werden installiert, bitte warten..."
 sudo apt upgrade -y
 # snap
 zenity --timeout 1 --info --text="Snaps werden aktualisiert, bitte warten..."
-snap refresh
+sudo snap refresh
 #
 # TM 11-05-21 SN dazu
 if zenity --question --ellipsize --text="Finalisierung beendet. S/N :"$serial" notieren! Cleanup-Script jetzt starten?"; then
