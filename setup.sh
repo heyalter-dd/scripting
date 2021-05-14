@@ -2,7 +2,7 @@
 # modified TM 2021, smb mount, gksu, sysinfo disabled
 
 #preparation
-gnome-terminal --wait -- bash -c "sudo apt update -y && sudo apt install cifs-utils -y && sudo mkdir /tmp/install && sudo mount.cifs -o username=guest,pass=guest //192.168.10.20/transfer /tmp/install"
+gnome-terminal --wait -- bash -c "sudo apt update -y && sudo apt install cifs-utils -y && sudo mkdir /tmp/install && sudo mount.cifs -o username=guest,pass=guest //192.168.10.20/transfer /tmp/install && sudo echo 'Defaults timestamp_timeout=30' > /etc/sudoers.d/10-install"
 
 # anzeigen der systemparameter
 
