@@ -12,13 +12,14 @@ folder=`echo $vendor"_"$model"_"$serial"-"$datum`
 #sudo chmod -R a+rw reports/
 if test ! -e reports/$folder; then 
  echo "directory not existing, creating it"
- mkdir -p reports/$folder
+ sudo mkdir -p reports/$folder
+ sudo chmod -R a+rw reports/$folder
 fi
 #sudo apt update -y
 sudo apt install hardinfo -y
 zenity --timeout 1 --info --text="Benchmark wird erstellt..."
 hardinfo -r -f html > /tmp/sysreport.html
-cat /tmp/sysreport.html | sed -n '/\<html/,/\<\/html/p' > reports/$folder/sysreport.html
+sudo cat /tmp/sysreport.html | sed -n '/\<html/,/\<\/html/p' > reports/$folder/sysreport.html
 rm /tmp/sysreport.html
 zenity --timeout 1 --info --text="Systemreport wurde erstellt"
 #zenity --info --text "Systemreport auf dem Staging Server unter "$folder" abgelegt" --title="Systemreport"
