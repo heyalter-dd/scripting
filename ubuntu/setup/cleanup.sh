@@ -17,3 +17,6 @@ gio set ~/Schreibtisch/heyalterhelp.desktop "metadata::trusted" true
 /opt/setup/cleanuproot.sh
 
 notify-send -t 1 "Finalisierung abgeschlossen!"
+
+#werbung
+/snap/bin/chromium https://www.heyalter.com/dresden
