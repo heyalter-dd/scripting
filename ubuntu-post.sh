@@ -29,7 +29,7 @@ zenity --timeout 1 --info --text="Updates werden installiert, bitte warten..."
 sudo apt upgrade -y
 # snap
 zenity --timeout 1 --info --text="Snaps werden aktualisiert, bitte warten..."
-snap refresh
+sudo snap refresh
 #
 # TM 11-05-21 SN dazu
 if zenity --question --ellipsize --text="Finalisierung beendet. S/N :"$serial" notieren! Cleanup-Script jetzt starten?"; then
