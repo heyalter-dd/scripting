@@ -1,6 +1,9 @@
 #!/bin/bash
 # modified TM 2021, smb mount, gksu, sysinfo disabled
 
+#preparation
+gnome-terminal --wait -- bash -c "sudo apt update -y && sudo apt install cifs-utils -y && sudo mkdir /tmp/install && sudo mount.cifs -o username=guest,pass=guest //192.168.10.20/transfer /tmp/install"
+
 # anzeigen der systemparameter
 
 #zenity --info --text "$(lshw -C memory)\n------------------------------------\nAnzahl Kerne: $(nproc)\n------------------------------------\n$(lshw -C cpu)" --width 1024
@@ -17,22 +20,9 @@ systemctl enable --user heyalter.service
 # richte das hintergrundbild ein
 gsettings set org.gnome.desktop.background picture-uri 'file:///home/schule/Bilder/los_gehts.png'
 
-#cheese
-#install smb client and mount share
-sudo apt update -y
-sudo apt install cifs-utils -y
-# mount staging smb share
-# ip anpassen!
-# gio mount -a smb://192.168.10.20/transfer
-# TM 12-05-2021
-#ln -si /run/user/1000/gvfs/smb-share\:server\=192.168.10.20\,share\=transfer/ $HOME/smb
-#cd $HOME/smb
-#cd /run/user/1000/gvfs
-#cd 'smb-share:server=192.168.10.20,share=transfer'
-sudo mkdir /tmp/install
-sudo mount.cifs -o username=guest,pass=guest //192.168.10.20/transfer /tmp/install
+#postinstall
 cd /tmp/install
-gnome-terminal -- bash -c "sh ubuntu-post.sh; exec bash"
+gnome-terminal --wait -- bash -c "sh ubuntu-post.sh; exec bash"
 #
 eject
 
