@@ -2,7 +2,11 @@
 # modified TM 2021, smb mount, gksu, sysinfo disabled
 
 #preparation
+<<<<<<< HEAD:ubuntu/setup/setup.sh
 gnome-terminal --wait -- bash -c "sudo apt update -y && sudo apt install nfs-common -y && sudo mkdir /tmp/install && sudo mount -t nfs 192.168.10.20:/var/www/html/transfer /tmp/install"
+=======
+gnome-terminal --wait -- bash -c "sudo apt update -y && sudo apt install cifs-utils -y && sudo mkdir /tmp/install && sudo mount.cifs -o username=guest,pass=guest //192.168.10.20/transfer /tmp/install && sudo chmod -R a+rw /tmp/install/reports"
+>>>>>>> aa568340838363f24dc6b66cbb5a7c1391ca64c3:setup.sh
 
 # anzeigen der systemparameter
 
