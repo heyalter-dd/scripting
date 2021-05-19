@@ -9,13 +9,13 @@ MENU AUTOBOOT Starte hinterlegte Option in # Sekunden
 LABEL erase
  MENU LABEL ^erase Disk/SSD (pmagic) BIOS
  # TM 11-05-2021 tftp option, symlink /tftp/pmagic anlegen!
- linux /pmagic/bzImage 
- initrd /pmagic/initrd.img,/pmagic/fu.img,/pmagic/m.img
- append edd=on vga=normal keymap=de netsrc=tftp neturl="192.168.10.20:/pmagic/pmodules"
+ #linux /pmagic/bzImage 
+ #initrd /pmagic/initrd.img,/pmagic/fu.img,/pmagic/m.img
+ #append edd=on vga=normal keymap=de netsrc=tftp neturl="192.168.10.20:/pmagic/pmodules"
  # komplettes iso booten - deprecated
- #linux boot/pmagic/memdisk
- #initrd boot/pmagic/pmagic.iso
- #append iso lang=yes
+ linux boot/pmagic/memdisk
+ initrd boot/pmagic/pmagic.iso
+ append iso 
  #
 
  TEXT HELP
