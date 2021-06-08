@@ -1,5 +1,5 @@
 #!/bin/sh
-#install hardinfo and create benchmark report to CIFS share
+#install hardinfo and create benchmark report to CIFS/NFS share
 #(c) TM 2021
 #
 zenity --timeout 1 --info --text="Installation wird finalisiert..."
