@@ -11,7 +11,6 @@ folder=`echo $vendor"_"$model"_"$serial"-"$datum`
 mkdir -p reports/$folder
 chmod -R a+rw reports/$folder
 if [ ! /home/partedmagic/diskveri* ]; then
-=======
 sudo mkdir -p reports/$folder
 if [ ! -d /home/partedmagic/diskveri* ]; then
 zenity --error --text "Loeschvorgang wirklich erledigt?" --title="Keine Reports vorhanden"
